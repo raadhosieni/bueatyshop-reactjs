@@ -1,0 +1,9 @@
+.container {
+  margin: 100px auto 0px;
+  padding: 20px 40px;
+  min-height: 400px;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}

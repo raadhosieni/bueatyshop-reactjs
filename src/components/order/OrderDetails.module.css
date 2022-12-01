@@ -1,0 +1,10 @@
+.orderDetails > div {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.orderDetails > div > h1 {
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}

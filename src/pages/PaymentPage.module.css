@@ -1,0 +1,56 @@
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-control {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-control label {
+  /* display: block; */
+  font-weight: 1.4rem;
+  order: 2;
+}
+
+.form-control input {
+  /* width: 100%; */
+  padding: 1rem 2rem;
+  border: 1px solid blue;
+  margin-right: 15px;
+}
+
+.form-control input:focus {
+  outline: none;
+}
+
+.actions {
+  text-align: left;
+}
+
+.invalid label {
+  color: red;
+}
+
+.invalid input {
+  border: 1px solid red;
+  background-color: rgb(243, 137, 137);
+}
+
+.message {
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #555;
+}

@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 96px;
+  background-color: blue;
+  color: #fff;
+  padding: 0 40px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header ul {
+  display: flex;
+  list-style: none;
+}
+
+.header ul li {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header ul li a {
+  text-decoration: none;
+  color: rgb(152, 152, 252);
+  font-weight: bold;
+  transition: color 0.3s ease-out;
+}
+
+.header ul li a:hover,
+.header ul li a.active {
+  color: #fff;
+}
+
+.header ul li button {
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: inherit;
+  cursor: pointer;
+  color: rgb(152, 152, 252);
+  transition: color 0.3s ease-out;
+}
+
+.header ul li button:hover {
+  color: #fff;
+}
+
+.header ul li a svg {
+  margin-right: 10px;
+}

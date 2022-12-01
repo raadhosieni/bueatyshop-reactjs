@@ -1,0 +1,12 @@
+.order {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details {
+  width: 55%;
+}
+
+.summary {
+  width: 35%;
+}

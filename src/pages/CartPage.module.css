@@ -1,0 +1,8 @@
+.cart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list {
+  flex-basis: 60%;
+}

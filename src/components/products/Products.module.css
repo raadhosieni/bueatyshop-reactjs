@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,46 @@
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-control {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-control label {
+  display: block;
+  font-weight: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid blue;
+}
+
+.form-control input:focus {
+  outline: none;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.invalid label {
+  color: red;
+}
+
+.invalid input {
+  border: 1px solid red;
+  background-color: rgb(243, 137, 137);
+}
+
+.message {
+  padding: 10px 20px;
+  margin-top: 20px;
+}

@@ -1,13 +1,86 @@
-body {
+*,
+html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+
+.btn {
+  background-color: blue;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  width: 120px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.btn:active,
+.btn:hover {
+  background-color: rgb(83, 83, 248);
+}
+
+.btn:focus,
+.btn-alt:focus {
+  outline: none;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-alt {
+  background-color: rgb(83, 10, 179);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-out;
+}
+
+.btn-alt:active,
+.btn-alt:hover {
+  background-color: rgb(125, 56, 216);
+}
+
+.error {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+}
+
+.spinner {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.success {
+  color: rgb(3, 190, 3);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
 }

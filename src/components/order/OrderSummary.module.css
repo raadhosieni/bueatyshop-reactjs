@@ -1,0 +1,23 @@
+.table {
+  width: 100%;
+}
+
+.table caption {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.table,
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.5rem;
+  text-align: left;
+}
