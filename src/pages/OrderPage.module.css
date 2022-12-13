@@ -1,0 +1,32 @@
+.order {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.details {
+  width: 55%;
+  min-width: 300px;
+}
+
+.details > div {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.details > div h1 {
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.summary {
+  width: 35%;
+  min-width: 300px;
+}
+
+.actions {
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}

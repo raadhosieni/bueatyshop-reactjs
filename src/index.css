@@ -21,7 +21,7 @@ code {
 a {
   text-decoration: none;
   font-weight: bold;
-  display: block;
+  /* display: block; */
 }
 
 .btn {
@@ -66,6 +66,10 @@ a {
   background-color: rgb(125, 56, 216);
 }
 
+.dng {
+  background-color: red;
+}
+
 .error {
   font-size: 1.2rem;
   font-weight: bold;
@@ -79,8 +83,22 @@ a {
 }
 
 .success {
-  color: rgb(3, 190, 3);
+  background-color: rgb(98, 255, 203);
+  color: rgb(2, 141, 65);
   font-weight: bold;
   font-size: 1.2rem;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.danger {
+  background-color: rgb(255, 163, 163);
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-top: 10px;
+}
+.center {
   text-align: center;
 }

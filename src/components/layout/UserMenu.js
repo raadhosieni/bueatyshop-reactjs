@@ -5,8 +5,7 @@ import { useDispatch } from "react-redux";
 
 import classes from "./UserMenu.module.css";
 
-import { userActions } from "../../store/user";
-import { cartActions } from "../../store/cart";
+import { user_logout } from "../../actions/users";
 
 const UserMenu = (props) => {
   const [showMenu, setShowMenu] = useState();
@@ -22,9 +21,7 @@ const UserMenu = (props) => {
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("userData");
-    dispatch(userActions.logout());
-    dispatch(cartActions.clearCart());
+    dispatch(user_logout());
   };
 
   return (

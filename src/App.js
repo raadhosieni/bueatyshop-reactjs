@@ -15,9 +15,10 @@ import CartPage from "./pages/CartPage";
 import ShippingPage from "./pages/ShippingPage";
 import PaymentPage from "./pages/PaymentPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
+import OrderPage from "./pages/OrderPage";
+import User from "./pages/Admin/User";
 
-import { userActions } from "./store/user";
-import { cartActions } from "./store/cart";
+import { user_logout } from "./actions/users";
 
 function App() {
   const user = useSelector((state) => state.user);
@@ -29,9 +30,7 @@ function App() {
   useEffect(() => {
     const timeIndentifier = setInterval(() => {
       if (expiresInDate && expiresInDate < Date.now()) {
-        localStorage.removeItem("userData");
-        dispatch(userActions.logout());
-        dispatch(dispatch(cartActions.clearCart()));
+        dispatch(user_logout());
       }
     }, 1000);
 
@@ -43,8 +42,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
-
-  console.log(user.expiresInDate);
 
   const isLogin = !!user.token;
 
@@ -89,9 +86,20 @@ function App() {
           {!isLogin && <Redirect to="/login" />}
         </Route>
 
+        <Route path="/orders/:orderId">
+          {isLogin && <OrderPage />}
+          {!isLogin && <Redirect to="/login" />}
+        </Route>
+
         {isLogin && user.isAdmin && (
           <Route path="/admin/products">
             <Products />
+          </Route>
+        )}
+
+        {isLogin && user.isAdmin && (
+          <Route path="/admin/users/:userId/edit">
+            <User />
           </Route>
         )}
 
@@ -108,7 +116,7 @@ function App() {
         )}
 
         <Route path="*">
-          <div>Not Found</div>
+          <div className="center">Not Found</div>
         </Route>
       </Switch>
     </Layout>

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import classes from "./MainNav.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,9 @@ const MainNav = () => {
 
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>BueatyShop</div>
+      <div className={classes.logo}>
+        <Link to="/">BueatyShop</Link>
+      </div>
       <nav>
         <ul>
           <li>

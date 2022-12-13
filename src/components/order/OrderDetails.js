@@ -1,35 +1,15 @@
-import OrderItem from "./OrderItem";
+import Shipping from "./Shipping";
+import Payment from "./Payment";
+import OrderItems from "./OrderItems";
 
 import classes from "./OrderDetails.module.css";
 
 const OrderDetails = (props) => {
   return (
     <section className={classes.orderDetails}>
-      <div>
-        <h1>Shipping</h1>
-        <p>
-          Address: {props.shippingAddress.address}, {props.shippingAddress.city}{" "}
-          {props.shippingAddress.postalcode}, {props.shippingAddress.country}
-        </p>
-      </div>
-      <div>
-        <h1>Payment Method</h1>
-        <p>Method: {props.paymentMethod}</p>
-      </div>
-      <div>
-        <h1>Order Items</h1>
-        <ul>
-          {props.items.map((item) => (
-            <OrderItem
-              key={item.id}
-              image={item.image}
-              name={item.name}
-              price={item.price}
-              quantity={item.quantity}
-            />
-          ))}
-        </ul>
-      </div>
+      <Shipping shippingAddress={props.shippingAddress} />
+      <Payment paymentMethod={props.paymentMethod} />
+      <OrderItems items={props.items} />
     </section>
   );
 };

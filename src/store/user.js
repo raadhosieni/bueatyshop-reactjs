@@ -19,6 +19,8 @@ const userSlice = createSlice({
   reducers: {
     login(state, action) {
       state.id = action.payload.id;
+      state.name = action.payload.name;
+      state.email = action.payload.email;
       state.token = action.payload.token;
       state.isAdmin = action.payload.isAdmin;
       state.expiresInDate = action.payload.expiresInDate;
@@ -34,6 +36,8 @@ const userSlice = createSlice({
       state.expiresInDate = null;
       state.status = "";
       state.error = null;
+      state.name = null;
+      state.email = null;
     },
     request(state) {
       state.status = "pending";

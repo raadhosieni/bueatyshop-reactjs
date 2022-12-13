@@ -10,3 +10,9 @@
 .summary {
   width: 35%;
 }
+
+.actions {
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}

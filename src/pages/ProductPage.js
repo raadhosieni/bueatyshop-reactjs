@@ -1,4 +1,3 @@
-import { faChampagneGlasses } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 

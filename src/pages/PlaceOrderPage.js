@@ -1,4 +1,7 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { orders_create_order } from "../actions/orders";
 import OrderDetails from "../components/order/OrderDetails";
 import OrderSummary from "../components/order/OrderSummary";
 
@@ -6,6 +9,20 @@ import classes from "./PlaceOrderPage.module.css";
 
 const PlaceOrderPage = () => {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+  const order = useSelector((state) => state.createOrder);
+
+  const history = useHistory();
+
+  const dispatch = useDispatch();
+
+  const { status, orderId } = order;
+
+  useEffect(() => {
+    if (status === "success") {
+      history.push(`/orders/${orderId}`);
+    }
+  }, [status, orderId]);
 
   const { shippingAddress, paymentMethod, items, totalAmount } = cart;
 
@@ -13,16 +30,17 @@ const PlaceOrderPage = () => {
   const taxPrice = totalAmount * 0.1;
 
   const placeOrderHandler = () => {
-    const order = {
+    const orderData = {
+      user: user.id,
       items,
       shippingAddress,
       paymentMethod,
-      totalAmount,
       shippingPrice,
       taxPrice,
+      totalPrice: totalAmount + shippingPrice + taxPrice,
     };
 
-    console.log(order);
+    dispatch(orders_create_order(orderData));
   };
 
   return (
@@ -39,8 +57,12 @@ const PlaceOrderPage = () => {
           totalAmount={totalAmount}
           shippingPrice={shippingPrice}
           taxPrice={taxPrice}
-          onSaveOrder={placeOrderHandler}
         />
+        <div className={classes.actions}>
+          <button className="btn" onClick={placeOrderHandler}>
+            {order.status === "pending" ? "Sending..." : "Place Order"}
+          </button>
+        </div>
       </div>
     </div>
   );

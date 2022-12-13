@@ -22,13 +22,6 @@ const OrderSummary = (props) => {
         <th>Total:</th>
         <td>{total} JOD</td>
       </tr>
-      <tr>
-        <td colSpan={2} style={{ textAlign: "center" }}>
-          <button className="btn" onClick={props.onSaveOrder}>
-            Place Order
-          </button>
-        </td>
-      </tr>
     </table>
   );
 };

@@ -45,3 +45,21 @@ export const loginUser = async (userData) => {
 
   return data;
 };
+
+const createOrder = async (order) => {
+  const response = await fetch("", {
+    method: "POST",
+    body: JSON.stringify(order),
+    headers: {
+      "Content-Type": "json/application",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Create order faild");
+  }
+
+  const data = await response.json();
+
+  return data;
+};
