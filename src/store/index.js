@@ -10,6 +10,7 @@ import { updateDeliveredReducer } from "./updateDelivered";
 import { getUsersReducer } from "./getUsers";
 import { getUserReducer } from "./getUser";
 import { updateUserReducer } from "./updateUser";
+import { deleteUserReducer } from "./deleteUser";
 
 const store = configureStore({
   reducer: {
@@ -23,6 +24,7 @@ const store = configureStore({
     getUsers: getUsersReducer,
     getUser: getUserReducer,
     updateUser: updateUserReducer,
+    deleteUser: deleteUserReducer,
   },
 });
 

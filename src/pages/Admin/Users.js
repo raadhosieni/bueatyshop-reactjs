@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { users_get_users } from "../../actions/users";
+import { users_get_users, users_delete_user } from "../../actions/users";
 
 import classes from "./Users.module.css";
 
@@ -20,18 +20,30 @@ const Users = () => {
 
   const { users } = useSelector((state) => state.getUsers);
 
+  const { status: deleteUserStatus } = useSelector((state) => state.deleteUser);
+
   const history = useHistory();
 
   useEffect(() => {
     dispatch(users_get_users());
   }, []);
 
+  useEffect(() => {
+    if (deleteUserStatus === "success") {
+      dispatch(users_get_users());
+    }
+  }, [deleteUserStatus]);
+
+  //open user edit page
   const openUserPageHandler = (userId) => {
     history.push(`/admin/users/${userId}/edit`);
-
-    console.log(userId);
   };
 
+  const deleteUserHandler = (userId) => {
+    if (window.confirm("Are you sure?")) {
+      dispatch(users_delete_user(userId));
+    }
+  };
   return (
     <div>
       <h1 className={classes.header}>Users</h1>
@@ -74,7 +86,10 @@ const Users = () => {
                   >
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </button>
-                  <button className="btn-alt dng">
+                  <button
+                    className="btn-alt dng"
+                    onClick={deleteUserHandler.bind(this, user._id)}
+                  >
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
                 </td>

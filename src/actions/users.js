@@ -5,6 +5,7 @@ import { createOrderActions } from "../store/createOrder";
 import { getUsersActions } from "../store/getUsers";
 import { getUserActions } from "../store/getUser";
 import { updateUserActions } from "../store/updateUser";
+import { deleteUserActions } from "../store/deleteUser";
 
 export const user_login = (userData, isLogin) => async (dispatch) => {
   dispatch(userActions.request());
@@ -135,3 +136,26 @@ export const users_update_user =
       dispatch(updateUserActions.fail(err));
     }
   };
+
+export const users_delete_user = (userId) => async (dispatch, getState) => {
+  dispatch(deleteUserActions.request());
+
+  const { token } = getState().user;
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Delete user failed");
+    }
+
+    dispatch(deleteUserActions.success());
+  } catch (err) {
+    dispatch(deleteUserActions.fail(err));
+  }
+};
