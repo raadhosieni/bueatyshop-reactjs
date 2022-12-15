@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { users_update_profile } from "../actions/users";
 
 import classes from "./ProfilePage.module.css";
 
 const ProfilePage = () => {
   const user = useSelector((state) => state.user);
 
+  const { status: updateUserProfileStatus } = useSelector(
+    (state) => state.updateUserProfile
+  );
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (user && user.name) {
@@ -29,8 +36,20 @@ const ProfilePage = () => {
     setPassword(e.target.value);
   };
 
+  const updateUserProfileHandler = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      name,
+      email,
+      password,
+    };
+
+    dispatch(users_update_profile(userData));
+  };
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={updateUserProfileHandler}>
       <div className={classes["form-control"]}>
         <label htmlFor="name">Name</label>
         <input
@@ -63,7 +82,7 @@ const ProfilePage = () => {
       </div>
       <div className={classes.actions}>
         <button type="submit" className="btn">
-          Update
+          {updateUserProfileStatus === "pending" ? "Sending..." : "Update"}
         </button>
       </div>
     </form>

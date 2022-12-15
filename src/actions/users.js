@@ -6,6 +6,7 @@ import { getUsersActions } from "../store/getUsers";
 import { getUserActions } from "../store/getUser";
 import { updateUserActions } from "../store/updateUser";
 import { deleteUserActions } from "../store/deleteUser";
+import { updateUserProfileActions } from "../store/updateUserProfile";
 
 export const user_login = (userData, isLogin) => async (dispatch) => {
   dispatch(userActions.request());
@@ -159,3 +160,32 @@ export const users_delete_user = (userId) => async (dispatch, getState) => {
     dispatch(deleteUserActions.fail(err));
   }
 };
+
+export const users_update_profile =
+  (userData) => async (dispatch, getState) => {
+    dispatch(updateUserProfileActions.request());
+
+    const { id, token } = getState().user;
+
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/users/${id}/profile`,
+        {
+          method: "PUT",
+          body: JSON.stringify(userData),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Update profile failed");
+      }
+
+      dispatch(updateUserProfileActions.success());
+    } catch (err) {
+      dispatch(updateUserProfileActions.fail(err));
+    }
+  };
