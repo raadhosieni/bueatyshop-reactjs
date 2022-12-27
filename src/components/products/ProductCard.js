@@ -14,7 +14,7 @@ const ProductCard = (props) => {
   return (
     <Card className={classes.product} onClick={clickHandler}>
       <div className={classes.header}>
-        <img src={props.image} alt={props.name} />
+        <img src={`http://localhost:5000${props.image}`} alt={props.name} />
       </div>
       <div>
         <div className={classes.name}>{props.name}</div>

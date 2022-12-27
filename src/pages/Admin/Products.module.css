@@ -1,0 +1,36 @@
+.products > button {
+  margin-bottom: 20px;
+  margin-left: auto;
+  display: block;
+}
+
+.header {
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table,
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.table th {
+  text-transform: uppercase;
+}
+
+.table td svg {
+  color: white;
+}

@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
   return (
     <div className={classes.productDetails}>
       <div className={classes.image}>
-        <img src={props.image} alt={props.name} />
+        <img src={`http://localhost:5000${props.image}`} alt={props.name} />
       </div>
       <div className={classes.info}>
         <div>

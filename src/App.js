@@ -9,6 +9,7 @@ import ProductPage from "./pages/ProductPage";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import Products from "./pages/Admin/Products";
+import EditProduct from "./pages/Admin/EditProduct";
 import Users from "./pages/Admin/Users";
 import Orders from "./pages/Admin/Orders";
 import CartPage from "./pages/CartPage";
@@ -90,6 +91,12 @@ function App() {
           {isLogin && <OrderPage />}
           {!isLogin && <Redirect to="/login" />}
         </Route>
+
+        {isLogin && user.isAdmin && (
+          <Route path="/admin/products/:productId/edit">
+            <EditProduct />
+          </Route>
+        )}
 
         {isLogin && user.isAdmin && (
           <Route path="/admin/products">

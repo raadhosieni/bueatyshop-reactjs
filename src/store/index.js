@@ -12,6 +12,11 @@ import { getUserReducer } from "./getUser";
 import { updateUserReducer } from "./updateUser";
 import { deleteUserReducer } from "./deleteUser";
 import { updateUserProfileReducer } from "./updateUserProfile";
+import { getProductsReducer } from "./getProducts";
+import { deleteProductReducer } from "./deleteProduct";
+import { createProductReducer } from "./createProduct";
+import { getProductReducer } from "./getProduct";
+import { updateProductReducer } from "./updateProduct";
 
 const store = configureStore({
   reducer: {
@@ -27,6 +32,11 @@ const store = configureStore({
     updateUser: updateUserReducer,
     deleteUser: deleteUserReducer,
     updateUserProfile: updateUserProfileReducer,
+    getProducts: getProductsReducer,
+    deleteProduct: deleteProductReducer,
+    createProduct: createProductReducer,
+    getProduct: getProductReducer,
+    updateProduct: updateProductReducer,
   },
 });
 
